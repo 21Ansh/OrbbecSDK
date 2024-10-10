@@ -1,10 +1,10 @@
 @PACKAGE_INIT@
 
-# Note: targets are specified in the namespaces they were exported from.
+include("${CMAKE_CURRENT_LIST_DIR}/OrbbecSDKTargets.cmake")
 
-set(OrbbecSDK_LIBS_DIR ${CMAKE_CURRENT_LIST_DIR})
-find_library(OrbbecSDK_LIBRARY NAMES OrbbecSDK PATHS ${OrbbecSDK_LIBS_DIR})
-set(OrbbecSDK_INCLUDE_DIRS ${CMAKE_CURRENT_LIST_DIR}/../include/)
-set(OrbbecSDK_LIBS ${OrbbecSDK_LIBRARY})
+set(OrbbecSDK_FOUND TRUE)
+set(OrbbecSDK_INCLUDE_DIRS "@PACKAGE_CMAKE_INSTALL_INCLUDEDIR@")
+set(OrbbecSDK_LIBS_DIR "@PACKAGE_CMAKE_INSTALL_LIBDIR@")
+set(OrbbecSDK_LIBRARIES OrbbecSDK::OrbbecSDK)
 
 check_required_components(OrbbecSDK)
